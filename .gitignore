@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Editors
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Note: output/*.csv are small (<120 KB each) and are tracked intentionally
+# so README screenshots/links keep working for portfolio viewers. If the
+# simulation is re-run with much longer t_max or higher sample_hz and the
+# CSVs grow large, consider adding "output/*.csv" here and using Git LFS
+# or regenerating them via run_all.py instead of committing them.

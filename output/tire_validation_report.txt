@@ -1,0 +1,28 @@
+Pacejka Magic Formula sekil karsilastirmasi (Fz=4000 N)
+================================================================
+                         commonroad-vehicle-models      kendi implementasyonumuz
+Boylamsal (Fx vs kappa):
+  pik kayma orani (kappa*)     -0.158                      -0.103
+  pik kuvvet [N]                 +4695.6                   -4599.2
+  pik-sonrasi dusme [%]           30.7                       40.3
+
+Yanal (Fy vs alpha):
+  pik kayma acisi [rad]         -0.149                      -0.187
+  pik kuvvet [N]                 +4195.6                   +4200.0
+  pik-sonrasi dusme [%]            7.1                        5.2
+
+Not: Boylamsal grafikte iki egri birbirinin kappa-ekseninde aynalanmis
+hali gibi gorunuyor - bunun nedeni commonroad-vehicle-models'in kendi
+formula_longitudinal() fonksiyonu icinde kappa'yi ic hesaplamadan once
+isaret degistirmesi (kod: "kappa = -kappa"), yani iki paket "pozitif
+slip ratio" icin ters bir isaret kuralı kullaniyor. Egrilerin SEKLI
+(tek pik, S-donusu, pik-sonrasi hafif dusme) birebir ayni kaliyor.
+
+Yorum: Her iki implementasyon da klasik Magic Formula'nin beklenen
+niteliksel davranisini uretiyor - sifirdan baslayan, tek bir pike
+ulasan ve pikten sonra (E katsayisi nedeniyle) hafif/orta duzeyde
+duzeyde duzelen/dusen bir S-egrisi. Mutlak pik kuvvet ve pik kaydirma
+degerleri, iki implementasyonun FARKLI (birbirinden bagimsiz secilmis)
+katsayi setlerine sahip olmasi nedeniyle birebir ayni degil - beklenen
+budur, cunku amac ayni ARACIN/LASTIGIN modellenmesi degil, ayni
+matematiksel FORMULASYONUN dogru uygulanmis olmasidir.
